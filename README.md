@@ -19,6 +19,20 @@ while numero_inicial <= 100:
 print("fin")
 ```
 
+Diagrama de flujo:
+
+```mermaid
+flowchart TD
+    A(Inicio) -->B[n : int ]
+    B --> C{¿n <= 100?}
+    C -->|Sí| D[sacar cuadrado: n^2]
+    D -->E[Añadir a n y a su cuadradado a la lista]
+    E -->F[n += 1]
+    F -->C
+    C -->|No|G(Fin)
+
+```
+
 2. Imprimir un listado con los números impares desde 1 hasta 999 y seguidamente otro listado con los números pares desde 2 hasta 1000.
 
 ```python
@@ -47,6 +61,28 @@ while primer_par <= 1000:
 
 print ("Fin numeros pares")
 ```
+
+Diagrama de flujo:
+
+```mermaid
+flowchart TD
+    A(Inicio) -->B[n : int] 
+    B --> C[Numeros impares
+    n=1]
+    B --> D[Numeros pares
+    n+=1]
+    C --> E{¿n <= 999?}
+    E -->|Sí| F[Añadir a la lista de impares]
+    F --> G[n += 2]   
+    G --> E 
+    E -->|No| H(Fin)
+    D -->I{¿n <= 1000?}
+    I -->|Sí| J[Añadir a la lista de pares]
+    J -->K[n += 2]
+    K -->I
+    I -->|No| L(Fin)
+```
+
 3. Imprimir los números pares en forma descendente hasta 2 que son menores o iguales a un número natural n ≥ 2 dado
 
 ```python
@@ -64,6 +100,25 @@ while numero_incial > 2:
     print(numero_incial)
 
 print ("Fin del listado")
+```
+
+Diagrama de flujo:
+
+```mermaid
+flowchart TD
+    A(Inicio) -->B[n : int
+    y
+    numero inicial = 1000] 
+    B --> C{numero inicial >= 2}
+    C -->|Sí| D{¿numero incial > n?}
+    C -->|No| E(Fin)
+    D -->|Sí| F[Omitir en la lista]
+    
+    F -->H[numero inicial -= 2 ]
+    H -->C
+    D -->|No| G[Añadir en la lista]
+    G -->I[numero inicial -= 2]
+    I -->C
 ```
 
 4. En 2022 el país A tendrá una población de 25 millones de habitantes y el país B de 18.9 millones. Las tasas de crecimiento anual de la población serán de 2% y 3% respectivamente. Desarrollar un algoritmo para informar en que año la población del país B superará a la de A.
